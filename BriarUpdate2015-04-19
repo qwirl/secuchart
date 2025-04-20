@@ -1,0 +1,101 @@
+```
+script/extend-item.sh briar && 
+patch -p 0 <<EOF &&
+--- data/briar.csv
++++ data/briar.csv
+@@ -14,1 +14,1 @@
+-Server license;;;
++Server license;;No central servers, even if the network is semi-central to Tor governance.;Briar is considered a P2P platform, but uses the Tor network in WAN mode, and thereby uses the Tor servers, which must adhere to the Tor server license:  https://gitlab.torproject.org/tpo/core/tor/-/raw/HEAD/LICENSE
+@@ -30,1 +30,1 @@
+-Emoji reception;partial;FIXME;
++Emoji reception;yes;Suports standard unicode emoticons;
+@@ -34,1 +34,1 @@
+-Inline videos;;;
++Inline videos;no;Doesn't support videos;
+@@ -37,1 +37,1 @@
+-Read public content without registering;;;
++Read public content without registering;no;One must have a Briar user account to read content posted between Briar users;Even though Briar is de-central, it still relies on peer discovery, and must have a way to identify individual users, and it does so on per device basis, and profiles can't be transferred from device to device.
+@@ -49,1 +49,1 @@
+-Receipts not mandatory;;;
++Receipts not mandatory;yes;Briar doesn't have read receipt, only sent and delivered receipts;
+@@ -54,1 +54,1 @@
+-Spam protection;;;
++Spam protection;partial;Not apliable;Briar is a de-central platform, and doesn't use client-server control mechanism, which makes moderation unfeasible. Only the device that serves the connection between a user and a given group, can sever the connection between a user and a given group, and thereby making moderation unfeasible at given stage.
+@@ -58,1 +58,1 @@
+-Power saving;;;
++Power saving;no;Briar is a battery hog;There are no battery saving options, only the option to use Mailbox, as a means to shutdown the app completely when not in use on a mobile device, while keeping Mailbox active on a second device, like a desktop connected to the internet 24/7, or while the mobile device is idle.  Using a second mobile device as a relay, only works for groups, but not individual chats.
+@@ -64,1 +64,1 @@
+-E2EE keys shielded from operator;;;
++E2EE keys shielded from operator;yes;https://briarproject.org/how-it-works/;
+@@ -71,1 +71,1 @@
+-Security team;;;
++Security team;yes;Eleanor Saitta (2025) and Julian Dehm (2025);There isn't a specific security team, but the mentioned people have security practice.
+@@ -72,1 +72,1 @@
+-Large bug bounty;;;
++Large bug bounty;no;Briar is open source;Open source means living of donations and/or fundraising and alternative income streams, and since isn't mainstream, the stream of revenue is smaller, and thereby it's not suitable to expect a large bug bounty..
+@@ -77,1 +77,1 @@
+-No-cost tier;;;
++No-cost tier;;Briar is free for all;
+@@ -80,1 +80,1 @@
+-Multi-party development;;;
++Multi-party development;partial;;
+@@ -81,1 +81,1 @@
+-Isolated self-hosting;;;
++Isolated self-hosting;yes;Briar functions in LAN mode;Briar acts as a local server, when other Briar users connect the Access Point, that is served by any given Briar user.
+@@ -82,1 +82,1 @@
+-User can extend network with node;;;
++User can extend network with node;yes;Briar is decentralized;In WAN mode, every Tor node increases the Briar infrastructure, while every user increase the Briar network, when connected to an existing network, and people aren't connected by default.  In LAN mode, every user increase the Briar network, when connected to an existing network, and people aren't connected by default.
+@@ -91,1 +91,1 @@
+-Serverless WAN mode;;;
++Serverless WAN mode;no;;
+@@ -93,1 +93,1 @@
+-Network store and forward;;;
++Network store and forward;partial;Peers need to be online at the same time;Mailbox tries to mitigate the need for being online at the same time.
+@@ -95,1 +95,1 @@
+-IP shielded from peers;;;
++IP shielded from peers;yes;Briar uses the Tor network by default;In LAN mode, peers are connected directly, but since people are already physically, close enough for natural trust to be assumed in LAN mode, that isn't an issue per say right now (2025). If the definition of LAN networks expand, then this direct connection needs to be re-evaluated.
+@@ -96,1 +96,1 @@
+-Proxy support;;;
++Proxy support;yes;Tor;Briar uses the Tor network by default in WAN mode.
+@@ -98,1 +98,1 @@
+-Bots available;;;
++Bots available;no;Briar is considered a P2P messenger;
+@@ -99,1 +99,1 @@
+-User addons;;;
++User addons;no;;
+@@ -100,1 +100,1 @@
+-Hosted bots and addons;;;
++Hosted bots and addons;no;;
+@@ -105,1 +105,1 @@
+-Transparency reports;;;
++Transparency reports;yes;By Cure53 in 2017;https://public.opentech.fund/documents/Briar-01-report.pdf
+@@ -107,1 +107,1 @@
+-Infrastructure jurisdiction;;;
++Infrastructure jurisdiction;;None;Since it relies on the Tor network in WAN mode, it's not applicable to talk about jurisdiction, as the Tor network is not a single point of failure or exposure.
+@@ -108,1 +108,1 @@
+-Infrastructure provider;;;
++Infrastructure provider;;Tor and/or own access point;Tor is decentralized, but not server-less, while the range of an Access Point is limited.
+@@ -113,1 +113,1 @@
+-Support team;;;
++Support team;yes;Email contact@briarproject.org ;https://briarproject.org/about/  [PGP key] link: https://briarproject.org/keys/contact.asc
+@@ -116,1 +116,1 @@
+-No past server vulnerabilities;;;
++No past server vulnerabilities;partial;Tor servers have been compromised before https://www.malwarebytes.com/blog/news/2024/09/tor-anonymity-compromised-by-law-enforcement-is-it-still-safe-to-use https://www.ndr.de/fernsehen/sendungen/panorama/aktuell/Investigations-in-the-so-called-darknet-Law-enforcement-agencies-undermine-Tor-anonymisation,toreng100.html;
+@@ -117,1 +117,1 @@
+-No past financing hiccups;;;
++No past financing hiccups;yes;;
+@@ -122,1 +122,1 @@
+-Server hosted until;;;
++Server hosted until;yes;;As long as the Tor network exist
+@@ -123,1 +123,1 @@
+-Server development until;;;
++Server development until;yes;;
+@@ -124,1 +124,1 @@
+-Client development until;;;
++Client development until;yes;;Until further notice, and development is active
+@@ -127,1 +127,1 @@
+-Researched;;;
++Researched;;Briar is usefull, but wastefull if no change;Briar is a great proof of concept, that security can be obtained through proper means, but it's also a proof of the shortcomings of the internet as we know it.  If something decentralized was to provide a functional and applicable tool, it wont be Briar as it is right now, but Mesh-nets and Meshstatic, that have a longer range in LAN mode.
+EOF
+script/reduce-item.sh briar
+```
